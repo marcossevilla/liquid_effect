@@ -8,12 +8,6 @@ import '../widgets/liquids.dart';
 class HomePage extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
-    final pages = [
-      Container(color: Theme.of(context).primaryColor),
-      Container(color: Theme.of(context).primaryColorLight),
-      Container(color: Theme.of(context).primaryColorDark),
-    ];
-
     return Scaffold(
       body: LiquidSwipe(
         pages: liquids,
@@ -23,8 +17,9 @@ class HomePage extends StatelessWidget {
         positionSlideIcon: 0.5,
         waveType: WaveType.liquidReveal,
         onPageChangeCallback: (page) => pageChangeCallback(page),
-        currentUpdateTypeCallback: (updateType) =>
-            updateTypeCallback(updateType),
+        currentUpdateTypeCallback: (updateType) {
+          updateTypeCallback(updateType);
+        },
       ),
     );
   }
